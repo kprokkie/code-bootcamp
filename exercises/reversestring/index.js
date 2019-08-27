@@ -19,4 +19,8 @@ function reverseV2(str) {
     return rev;
 }
 
+function reverseV3(str) {
+    return [...str].reverse().join();
+}
+
 module.exports = reverse;
