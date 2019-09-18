@@ -132,6 +132,30 @@ function recursiveBST(queue, list) {
     return recursiveBST(queue, list);
 }
 
+// https://leetcode.com/problems/binary-tree-inorder-traversal/solution/
+BST.prototype.iterativeInorderDFS = () => {
+    let currentNode = this.root;
+    let stack = [];
+    let result = [];
+    stack.push(currentNode);
+
+    while(currentNode && stack.length) {
+
+        if (currentNode.left) {
+            stack.push(currentNode.left);
+        }
+
+
+        result.push(currentNode.value);
+
+        if (currentNode.right) {
+            stack.push(currentNode.right);
+        }
+
+    }
+    return result;
+};
+
 BST.prototype.recursiveInorderDFS = () => {
     return traverseInorderDFS(this.root, []);
 }
@@ -194,27 +218,28 @@ BST.prototype.isValidBST = (root) => {
 }
 
 const bst = new BST();
-// bst.insert(9);
-// bst.insert(4);
-// bst.insert(6);
-// bst.insert(20);
-// bst.insert(170);
-// bst.insert(15);
-// bst.insert(1);
-// bst.insert(18);
+bst.insert(9);
+bst.insert(4);
+bst.insert(6);
+bst.insert(20);
+bst.insert(170);
+bst.insert(15);
+bst.insert(1);
+bst.insert(18);
 
 //------------------
-bst.insert(2);
-bst.insert(1);
-bst.insert(3);
+// bst.insert(2);
+// bst.insert(1);
+// bst.insert(3);
 
 
 // bst.remove(27);
-console.log(bst.traversalBFS());
-console.log(bst.recursiveTraversalBFS([this.root], []));
+// console.log(bst.traversalBFS());
+// console.log(bst.recursiveTraversalBFS([this.root], []));
 // BFS: [ 9, 4, 20, 1, 6, 15, 170 ]
 
+console.log(bst.iterativeInorderDFS());
 console.log(bst.recursiveInorderDFS());
 // 
-console.log('Check Valid BST');
-console.log(bst.isValidBST(this.root));
+// console.log('Check Valid BST');
+// console.log(bst.isValidBST(this.root));
