@@ -36,7 +36,6 @@ BST.prototype.insertIterative = (value) => {
     }
 }
 
-
 // Insert - Recursive
 BST.prototype.insertRecursive = (value) => {
 
@@ -60,29 +59,9 @@ BST.prototype.insertRecursive = (value) => {
     helper(this.root);
 }
 
-// Traversal
-// BFS - Recursive - using Queue
-BST.prototype.traversalBFSRecursive = (root) => {
+// Find ?
 
-    if (!root)
-        return [];
-
-    let bfsTraversal = [];
-    let queue = [];
-    // push root 
-    queue.push(root);
-    while (queue.length) {
-        let curr = queue.shift();
-
-        bfsTraversal.push(curr.value);
-
-        if (curr.left) queue.push(curr.left);
-        if (curr.right) queue.push(curr.right);
-    }
-
-    console.log(bfsTraversal);
-
-}
+// Contains ?
 
 // log
 BST.prototype.log = () => {
@@ -107,9 +86,4 @@ bst1.insertRecursive(20);
 bst1.insertRecursive(3);
 bst1.insertRecursive(8);
 bst1.insertRecursive(13);
-// bst1.log();
-// console.log(JSON.stringify(this.root));
-
-// Traversal
-// BFS - Recursive
-bst1.traversalBFSRecursive(this.root);
+bst1.log();
