@@ -20,9 +20,14 @@ class MaxBinaryHeap {
             let rHold = false;
 
             // check
-            lHold = (this.data[leftChildIndex] > this.data[parentIndex]);
-            if (lHold) lHold = this.data[leftChildIndex] > this.data[rightChildIndex];
-            if (!lHold) rHold = this.data[rightChildIndex] > this.data[parentIndex];
+            if (this.data[leftChildIndex]) {
+                lHold = (this.data[leftChildIndex] > this.data[parentIndex]);
+            }
+            
+            if (this.data[rightChildIndex]) {
+                if (lHold) lHold = this.data[leftChildIndex] > this.data[rightChildIndex];
+                if (!lHold) rHold = this.data[rightChildIndex] > this.data[parentIndex];
+            }
 
             if (!lHold && !rHold) break;
 
