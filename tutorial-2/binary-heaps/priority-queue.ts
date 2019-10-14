@@ -43,10 +43,14 @@ class PriorityQueue {
             let rHold = false;
 
             // check
-            console.log(this.data);
-            lHold = (this.data[leftChildIndex].priority < this.data[parentIndex].priority);
-            if (lHold) lHold = this.data[leftChildIndex].priority < this.data[rightChildIndex].priority;
-            if (!lHold) rHold = this.data[rightChildIndex].priority < this.data[parentIndex].priority;
+            if (this.data[leftChildIndex]) {
+                lHold = (this.data[leftChildIndex].priority < this.data[parentIndex].priority);
+            }
+            
+            if (this.data[rightChildIndex]) {
+                if (lHold) lHold = this.data[leftChildIndex].priority < this.data[rightChildIndex].priority;
+                if (!lHold) rHold = this.data[rightChildIndex].priority < this.data[parentIndex].priority;
+            }
 
             if (!lHold && !rHold) break;
 
