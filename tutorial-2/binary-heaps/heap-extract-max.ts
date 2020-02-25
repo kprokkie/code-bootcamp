@@ -42,7 +42,7 @@ class MaxBinaryHeap {
     }
 }
 
-const maxBH = new MaxBinaryHeap();
+const maxBH = new MaxBinary ();
 console.log(maxBH.extractMax());
 console.log(maxBH.extractMax());
 
